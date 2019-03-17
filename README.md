@@ -32,10 +32,10 @@ WHERE customerName = 'Mini Creations Ltd.' AND repName = 'Julie Firrelli';
 ```
 UPDATE CustomerOverview
 SET repEmail = 'jrell3333i@classicmodelcars.com'
-WHERE customerName = 'Mini Creations Ltd.';
+WHERE custCity = 'Bern';
+//OR WHERE custCountry = 'USA';
 ```
-By look into the result from table after update statement 1, we found out that repPhone is not depended on repName but the entire office. When we update the phone number of a specific salesrep, it will end up to also update other salesreps in the same office.
-
-//statement 2 ved ikke den er rigtig lavede eller ej
+By look into the result from table after update statement 1, we found out that repPhone is not depended on repName but the entire office. When we update the phone number of a specific salesrep, it will end up to also update other salesreps in the same office. We call it *update anomalies*, which means problems that arise when information is inserted, deleted, or updated.
+<br/> As same as the result from update statement 1, the update statement 2 got the same problem that the query will also update other redundant data, when one of them is getting update, which means that database is still un-normalized.
 
 ## Exercise 4
