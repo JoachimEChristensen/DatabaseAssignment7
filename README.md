@@ -36,5 +36,6 @@ WHERE customerName = 'Mini Creations Ltd.';
 ```
 By look into the result from table after update statement 1, we found out that repPhone is not depended on repName but the entire office. When we update the phone number of a specific salesrep, it will end up to also update other salesreps in the same office.
 
+//statement 2 ved ikke den er rigtig lavede eller ej
 
 ## Exercise 4
