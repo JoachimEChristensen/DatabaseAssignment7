@@ -28,7 +28,8 @@ UPDATE CustomerOverview
 SET repPhone = '+12345678'
 WHERE repPhone = '+1 125 387 2058'
 ```
-"SQL_SAFE_UPDATES" prevents the MySQL database engine from executing UPDATE and DELETE statements that don't include WHERE clauses that reference the primary key column(s). Update statement 1 is using safe update because ```repPhone``` in WHERE clause is not a primary key column. This query will update all the rows WHERE the values of ```repPhone``` is equal to this specified number(+1 125 387 2058). <br/>
+"SQL_SAFE_UPDATES" prevents the MySQL database engine from executing UPDATE and DELETE statements that don't include WHERE clauses that reference the primary key column(s). Update statement 1 is using safe update because ```repPhone``` in WHERE clause is not a primary key column.
+<br/> This query will update all the rows WHERE the values of ```repPhone``` is equal to this specified number(+1 125 387 2058). <br/>
 
 ***Statement 2*** <br/>
 ```MySQL
@@ -42,3 +43,10 @@ By look into the result from table after both update statement, we found out tha
 This will cause the query also update other redundant data, when one of them is getting update, which means that database is still un-normalized.
 
 ## Exercise 4
+***Drawing*** <br/>
+By using the customerNumber, we drew a representation of the B+ tree with index and leaf nodes, as well as the actual table data.
+![B+Tree](image/B_tree.jpg)<br/>
+***Handji Gifts& Co*** <br/>
+*Handji Gifts& Co* has ```customerNumber``` 166. By using the B+ tree drawing, the path through the tree is:
+1. 166 is smaller than 282, so we are now on leaf node of 282
+2. 166 is bigger than 114 and smaller that 276, which means 166 is in between of 114 and 276 i.e., 166 is No.2 value on leaf node of 282.
