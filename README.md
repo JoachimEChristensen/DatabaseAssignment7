@@ -23,19 +23,22 @@ In regards to violations, you still end up hitting the same second normal form v
 
 ## Exercise 3
 ***Statement 1*** <br/>
-```
+```MySQL
 UPDATE CustomerOverview
-SET repPhone = '+1 512 738 5208'
-WHERE customerName = 'Mini Creations Ltd.' AND repName = 'Julie Firrelli';
+SET repPhone = '+12345678'
+WHERE repPhone = '+1 125 387 2058'
 ```
+"SQL_SAFE_UPDATES" prevents the MySQL database engine from executing UPDATE and DELETE statements that don't include WHERE clauses that reference the primary key column(s). Update statement 1 is using safe update because ```repPhone``` in WHERE clause is not a primary key column. This query will update all the rows WHERE the values of ```repPhone``` is equal to this specified number(+1 125 387 2058). <br/>
+
 ***Statement 2*** <br/>
-```
+```MySQL
 UPDATE CustomerOverview
-SET repEmail = 'jrell3333i@classicmodelcars.com'
-WHERE custCity = 'Bern';
-//OR WHERE custCountry = 'USA';
+SET repEmail = 'andyfff3333i@classicmodelcars.com'
+WHERE customerName = 'Australian Collectables, Ltd' AND repName = 'Andy Fixter';
 ```
-By look into the result from table after update statement 1, we found out that repPhone is not depended on repName but the entire office. When we update the phone number of a specific salesrep, it will end up to also update other salesreps in the same office. We call it *update anomalies*, which means problems that arise when information is inserted, deleted, or updated.
-<br/> As same as the result from update statement 1, the update statement 2 got the same problem that the query will also update other redundant data, when one of them is getting update, which means that database is still un-normalized.
+Update statement 2 will only update the row WHERE the value of the ```customerName``` is equal to the specified customerName ('Australian Collectables, Ltd') AND ```repName``` is equal to the specified repName('Andy Fixter'), which means that other rows that containing the same ```repEmail``` will not be update. <br/>
+
+By look into the result from table after both update statement, we found out that repPhone is not depended on repName but the entire office. When we update the phone number of a specific salesrep, it will end up to also update other salesreps in the same office. We call it *update anomalies*, which means problems that arise when information is inserted, deleted, or updated.
+This will cause the query also update other redundant data, when one of them is getting update, which means that database is still un-normalized.
 
 ## Exercise 4
